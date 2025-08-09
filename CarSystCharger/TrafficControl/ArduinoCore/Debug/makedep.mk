@@ -52,3 +52,5 @@ src\core\WMath.cpp
 
 src\core\WString.cpp
 
+src\libraries\SPI\src\SPI.cpp
+

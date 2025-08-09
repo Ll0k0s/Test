@@ -267,10 +267,34 @@
     <OutputType>Executable</OutputType>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="TrafficControl\Adafruit_BusIO_Register.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="TrafficControl\Adafruit_BusIO_Register.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="TrafficControl\Adafruit_GenericDevice.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="TrafficControl\Adafruit_GenericDevice.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="TrafficControl\Adafruit_I2CDevice.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="TrafficControl\Adafruit_I2CDevice.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="TrafficControl\Adafruit_INA219.cpp">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="TrafficControl\Adafruit_INA219.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="TrafficControl\Adafruit_SPIDevice.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="TrafficControl\Adafruit_SPIDevice.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="TrafficControl\LocoPacket.cpp">

@@ -2,7 +2,15 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+TrafficControl\Adafruit_BusIO_Register.cpp
+
+TrafficControl\Adafruit_GenericDevice.cpp
+
+TrafficControl\Adafruit_I2CDevice.cpp
+
 TrafficControl\Adafruit_INA219.cpp
+
+TrafficControl\Adafruit_SPIDevice.cpp
 
 TrafficControl\LocoPacket.cpp
 
