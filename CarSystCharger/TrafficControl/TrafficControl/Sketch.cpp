@@ -21,23 +21,23 @@ void setup() {
     loco.send_B2_hello();
 
     uart.print(PSTR("Initializing INA219...\n"));
-    //if (!ina219.begin()) {
+    if (!ina219.begin()) {
 		//uart.print(PSTR("Failed to find INA219 chip"));
 		//while (1) { delay(1000); }
-	//} else {
+	} else {
         //uart.print(PSTR("INA219 chip found\n"));
-	//}
+	}
 	
-	ina219.setCalibration_32V_2A();  // Настройка по умолчанию (32 В, до 2 А)
+	//ina219.setCalibration_32V_2A();  // Настройка по умолчанию (32 В, до 2 А)
 }
 
 void loop() {
     uart.read();
     loco.read();
 
-    //if (timer.ena_timer_1Hz) {
-		//uart.print(PSTR("check\n"));
-        //logic_timer_1Hz();
+    if (timer.ena_timer_1Hz) {
+		uart.print(PSTR("check\n"));
+        logic_timer_1Hz();
 //
     //float shuntvoltage_mV = ina219.getShuntVoltage_mV();
     //float busvoltage_V    = ina219.getBusVoltage_V();
@@ -53,7 +53,6 @@ void loop() {
     //uart.print(PSTR("Power:         %d mW\n"), power_mW);
     //uart.print(PSTR("\n"));
 //
-        //timer.ena_timer_1Hz = false;
-    //}
-	_delay_ms(100);
+        timer.ena_timer_1Hz = false;
+    }
 }
