@@ -40,8 +40,13 @@ Sketch.d Sketch.o: .././Sketch.cpp \
  .././TrafficControl\Settings.h .././TrafficControl\UART.h \
  .././TrafficControl\Shift_reg.h .././TrafficControl\Timer.h \
  .././TrafficControl\Logic.h .././TrafficControl\LocoPacket.h \
- .././TrafficControl/Wire/src/Wire.h \
- ..\\..\ArduinoCore\include\core/Stream.h
+ .././TrafficControl/Adafruit_INA219.h \
+ .././TrafficControl/Adafruit_BusIO_Register.h \
+ .././TrafficControl/Adafruit_GenericDevice.h \
+ .././TrafficControl/Adafruit_I2CDevice.h .././TrafficControl/Wire.h \
+ ..\\..\ArduinoCore\include\core/Stream.h \
+ .././TrafficControl/Adafruit_SPIDevice.h \
+ ..\\..\ArduinoCore\include\core/SPI.h
 
 ..\\..\ArduinoCore\include\core/Arduino.h:
 
@@ -137,6 +142,18 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 .././TrafficControl\LocoPacket.h:
 
-.././TrafficControl/Wire/src/Wire.h:
+.././TrafficControl/Adafruit_INA219.h:
+
+.././TrafficControl/Adafruit_BusIO_Register.h:
+
+.././TrafficControl/Adafruit_GenericDevice.h:
+
+.././TrafficControl/Adafruit_I2CDevice.h:
+
+.././TrafficControl/Wire.h:
 
 ..\\..\ArduinoCore\include\core/Stream.h:
+
+.././TrafficControl/Adafruit_SPIDevice.h:
+
+..\\..\ArduinoCore\include\core/SPI.h:

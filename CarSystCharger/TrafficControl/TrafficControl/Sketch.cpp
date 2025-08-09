@@ -6,76 +6,54 @@
 #include "TrafficControl\Timer.h"
 #include "TrafficControl\Logic.h"
 #include "TrafficControl\LocoPacket.h"
-#include "TrafficControl/Wire/src/Wire.h"
+#include "TrafficControl/Adafruit_INA219.h"
 
 UART uart;
 Timer timer;
 LocoPacket loco;
 
-
-const uint8_t INA219_ADDR = 0x40;
-
-static void ina219_writeReg(uint8_t reg, uint16_t val) {
-    Wire.beginTransmission(INA219_ADDR);
-    Wire.write(reg);
-    Wire.write((uint8_t)(val >> 8));
-    Wire.write((uint8_t)val);
-    Wire.endTransmission();
-}
-
-static uint16_t ina219_readReg(uint8_t reg) {
-    Wire.beginTransmission(INA219_ADDR);
-    Wire.write(reg);
-    Wire.endTransmission(false);
-    Wire.requestFrom(INA219_ADDR, (uint8_t)2);
-    uint16_t v = ((uint16_t)Wire.read() << 8) | Wire.read();
-    return v;
-}
-
-static void ina219_init() {
-    Wire.begin(0x40);
-    // Конфигурация: 32V, 320mV, 12-bit, continuous
-    ina219_writeReg(0x00, 0x019F);
-    // Калибровка (пример для шунта 0.1 Ом и макс ~3.2А)
-    // CAL = 4096 (0x1000) условно; подстройте под ваш шунт.
-    ina219_writeReg(0x05, 0x1000);
-}
-
-static void ina219_readAndPrint() {
-    int16_t shunt_raw = (int16_t)ina219_readReg(0x01);      // 10uV/LSB
-    uint16_t bus_raw   = ina219_readReg(0x02);              // 4mV/LSB, бит0..2 status
-    int16_t power_raw  = (int16_t)ina219_readReg(0x03);     // зависит от CAL
-    int16_t current_raw= (int16_t)ina219_readReg(0x04);     // зависит от CAL
-
-    float shunt_mV = shunt_raw * 0.01f;                     // 10uV -> mV
-    float bus_V    = (bus_raw >> 3) * 0.004f;               // 4mV шаг
-    // Для выбранной калибровки предположим 1mA/LSB (примерно, пересчёт зависит от CAL/шунта)
-    float current_mA = current_raw * 1.0f;
-    // Power регистр обычно 20 * current_LSB
-    float power_mW = power_raw * 20.0f * 1.0f;              // если 1mA/LSB
-
-    uart.print(PSTR("INA219: V=%.2fV I=%.1fmA P=%.0fmW Vsh=%.2fmV\n"),
-               bus_V, current_mA, power_mW, shunt_mV);
-}
-
+Adafruit_INA219 ina219;  // По умолчанию используется адрес 0x40
 
 void setup() {
     Serial.begin(9600);
     LocoNet.init(9);
     uart.print(PSTR("Test Board %d\n"), ADDR_BOARD);
     loco.send_B2_hello();
-    ina219_init();
+
+    uart.print(PSTR("Initializing INA219...\n"));
+    //if (!ina219.begin()) {
+		//uart.print(PSTR("Failed to find INA219 chip"));
+		//while (1) { delay(1000); }
+	//} else {
+        //uart.print(PSTR("INA219 chip found\n"));
+	//}
+	
+	ina219.setCalibration_32V_2A();  // Настройка по умолчанию (32 В, до 2 А)
 }
 
 void loop() {
     uart.read();
     loco.read();
 
-    if (timer.ena_timer_1Hz) {
-		uart.print(PSTR("check\n"));
-        logic_timer_1Hz();
-        //ina219_readAndPrint();
-        timer.ena_timer_1Hz = false;
-    }
+    //if (timer.ena_timer_1Hz) {
+		//uart.print(PSTR("check\n"));
+        //logic_timer_1Hz();
+//
+    //float shuntvoltage_mV = ina219.getShuntVoltage_mV();
+    //float busvoltage_V    = ina219.getBusVoltage_V();
+    //float loadvoltage_V   = busvoltage_V + (shuntvoltage_mV / 1000.0f);
+    //float current_mA      = ina219.getCurrent_mA();
+    //float power_mW        = ina219.getPower_mW();
+//
+    //// Вывод результатов
+    //uart.print(PSTR("Bus Voltage: %d V\n"), busvoltage_V);
+    //uart.print(PSTR("Shunt Voltage: %d mV\n"), shuntvoltage_mV);
+    //uart.print(PSTR("Load Voltage:  %d V\n"), loadvoltage_V);
+    //uart.print(PSTR("Current:       %d mA\n"), current_mA);
+    //uart.print(PSTR("Power:         %d mW\n"), power_mW);
+    //uart.print(PSTR("\n"));
+//
+        //timer.ena_timer_1Hz = false;
+    //}
 	_delay_ms(100);
 }

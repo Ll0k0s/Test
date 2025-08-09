@@ -1,5 +1,7 @@
-TrafficControl/Adafruit_INA219.d TrafficControl/Adafruit_INA219.o: \
- ../TrafficControl/Adafruit_INA219.cpp \
+TrafficControl/Adafruit_SPIDevice.d TrafficControl/Adafruit_SPIDevice.o: \
+ ../TrafficControl/Adafruit_SPIDevice.cpp \
+ ../TrafficControl/Adafruit_SPIDevice.h \
+ ..\\..\ArduinoCore\include\core/SPI.h \
  ..\\..\ArduinoCore\include\core/Arduino.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
@@ -34,15 +36,11 @@ TrafficControl/Adafruit_INA219.d TrafficControl/Adafruit_INA219.o: \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  ..\\..\ArduinoCore\include\core/Arduino.h \
- ..\\..\ArduinoCore\include\variants\standard/pins_arduino.h \
- ../TrafficControl/Wire/src/Wire.h \
- ..\\..\ArduinoCore\include\core/Stream.h \
- ../TrafficControl/Adafruit_INA219.h \
- ../TrafficControl/Adafruit_BusIO_Register.h \
- ../TrafficControl/Adafruit_GenericDevice.h \
- ../TrafficControl/Adafruit_I2CDevice.h ../TrafficControl/Wire.h \
- ../TrafficControl/Adafruit_SPIDevice.h \
- ..\\..\ArduinoCore\include\core/SPI.h
+ ..\\..\ArduinoCore\include\variants\standard/pins_arduino.h
+
+../TrafficControl/Adafruit_SPIDevice.h:
+
+..\\..\ArduinoCore\include\core/SPI.h:
 
 ..\\..\ArduinoCore\include\core/Arduino.h:
 
@@ -113,21 +111,3 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ..\\..\ArduinoCore\include\core/Arduino.h:
 
 ..\\..\ArduinoCore\include\variants\standard/pins_arduino.h:
-
-../TrafficControl/Wire/src/Wire.h:
-
-..\\..\ArduinoCore\include\core/Stream.h:
-
-../TrafficControl/Adafruit_INA219.h:
-
-../TrafficControl/Adafruit_BusIO_Register.h:
-
-../TrafficControl/Adafruit_GenericDevice.h:
-
-../TrafficControl/Adafruit_I2CDevice.h:
-
-../TrafficControl/Wire.h:
-
-../TrafficControl/Adafruit_SPIDevice.h:
-
-..\\..\ArduinoCore\include\core/SPI.h:
