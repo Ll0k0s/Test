@@ -29,6 +29,20 @@
 #include <compat/twi.h>
 #include <Arduino.h> // for digitalWrite and micros
 
+// Microchip Studio builds may provide TWI register names with a
+// numeric suffix (e.g. TWCR0) when multiple TWI peripherals exist.
+// Provide aliases so the library can continue to reference the
+// legacy names used by the Arduino core.
+#if defined(TWCR0) && !defined(TWCR)
+#define TWCR  TWCR0
+#define TWDR  TWDR0
+#define TWAR  TWAR0
+#define TWBR  TWBR0
+#define TWSR  TWSR0
+#define TWAMR TWAMR0
+#endif
+
+
 #ifndef cbi
 #define cbi(sfr, bit) (_SFR_BYTE(sfr) &= ~_BV(bit))
 #endif

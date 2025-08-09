@@ -39,7 +39,9 @@ Sketch.d Sketch.o: .././Sketch.cpp \
  ../LoconetLib/utility/ln_opc.h ../LoconetLib/utility/utils.h \
  .././TrafficControl\Settings.h .././TrafficControl\UART.h \
  .././TrafficControl\Shift_reg.h .././TrafficControl\Timer.h \
- .././TrafficControl\Logic.h .././TrafficControl\LocoPacket.h
+ .././TrafficControl\Logic.h .././TrafficControl\LocoPacket.h \
+ .././TrafficControl/Wire/src/Wire.h \
+ ..\\..\ArduinoCore\include\core/Stream.h
 
 ..\\..\ArduinoCore\include\core/Arduino.h:
 
@@ -134,3 +136,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 .././TrafficControl\Logic.h:
 
 .././TrafficControl\LocoPacket.h:
+
+.././TrafficControl/Wire/src/Wire.h:
+
+..\\..\ArduinoCore\include\core/Stream.h:
