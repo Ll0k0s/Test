@@ -30,6 +30,8 @@ src\core\PreprocessingAssembly\wiring_pulse.S
 
 src\core\Print.cpp
 
+src\core\SPI.cpp
+
 src\core\Stream.cpp
 
 src\core\Tone.cpp
@@ -51,6 +53,4 @@ src\core\wiring_shift.c
 src\core\WMath.cpp
 
 src\core\WString.cpp
-
-src\libraries\SPI\src\SPI.cpp
 

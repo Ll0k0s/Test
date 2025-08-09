@@ -58,6 +58,7 @@ C_SRCS +=  \
 ../TrafficControl/Adafruit_SPIDevice.cpp \
 ../TrafficControl/LocoPacket.cpp \
 ../TrafficControl/Logic.cpp \
+../TrafficControl/SPI.cpp \
 ../TrafficControl/Timer.cpp \
 ../TrafficControl/UART.cpp \
 ../LoconetLib/LocoNet.cpp \
@@ -83,6 +84,7 @@ TrafficControl/Adafruit_INA219.o \
 TrafficControl/Adafruit_SPIDevice.o \
 TrafficControl/LocoPacket.o \
 TrafficControl/Logic.o \
+TrafficControl/SPI.o \
 TrafficControl/Timer.o \
 TrafficControl/UART.o \
 LoconetLib/LocoNet.o \
@@ -101,6 +103,7 @@ TrafficControl/Adafruit_INA219.o \
 TrafficControl/Adafruit_SPIDevice.o \
 TrafficControl/LocoPacket.o \
 TrafficControl/Logic.o \
+TrafficControl/SPI.o \
 TrafficControl/Timer.o \
 TrafficControl/UART.o \
 LoconetLib/LocoNet.o \
@@ -119,6 +122,7 @@ TrafficControl/Adafruit_INA219.d \
 TrafficControl/Adafruit_SPIDevice.d \
 TrafficControl/LocoPacket.d \
 TrafficControl/Logic.d \
+TrafficControl/SPI.d \
 TrafficControl/Timer.d \
 TrafficControl/UART.d \
 LoconetLib/LocoNet.d \
@@ -137,6 +141,7 @@ TrafficControl/Adafruit_INA219.d \
 TrafficControl/Adafruit_SPIDevice.d \
 TrafficControl/LocoPacket.d \
 TrafficControl/Logic.d \
+TrafficControl/SPI.d \
 TrafficControl/Timer.d \
 TrafficControl/UART.d \
 LoconetLib/LocoNet.d \
@@ -205,6 +210,13 @@ TrafficControl/LocoPacket.o: ../TrafficControl/LocoPacket.cpp
 	
 
 TrafficControl/Logic.o: ../TrafficControl/Logic.cpp
+	@echo Building file: $<
+	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DARDUINO=108013 -DARDUINO_AVR_UNO -DARDUINO_ARCH_AVR -DUSB_VID=0x2341 -DUSB_PID=0x0043 -DUSB_MANUFACTURER="\"Arduino LLC\"" -DDEBUG -DF_CPU=8000000L  -I"..\\..\ArduinoCore\include\core" -I"..\\..\ArduinoCore\include\variants\standard" -I"../LoconetLib" -I"../LoconetLib/utility" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Os -fno-threadsafe-statics -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -w -mmcu=atmega328pb -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega328pb" -c -std=gnu++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+TrafficControl/SPI.o: ../TrafficControl/SPI.cpp
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DARDUINO=108013 -DARDUINO_AVR_UNO -DARDUINO_ARCH_AVR -DUSB_VID=0x2341 -DUSB_PID=0x0043 -DUSB_MANUFACTURER="\"Arduino LLC\"" -DDEBUG -DF_CPU=8000000L  -I"..\\..\ArduinoCore\include\core" -I"..\\..\ArduinoCore\include\variants\standard" -I"../LoconetLib" -I"../LoconetLib/utility" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Os -fno-threadsafe-statics -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -w -mmcu=atmega328pb -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega328pb" -c -std=gnu++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

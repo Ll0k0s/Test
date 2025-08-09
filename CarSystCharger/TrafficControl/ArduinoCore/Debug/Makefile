@@ -63,6 +63,7 @@ C_SRCS +=  \
 ../src/core/new.cpp \
 ../src/core/PluggableUSB.cpp \
 ../src/core/Print.cpp \
+../src/core/SPI.cpp \
 ../src/core/Stream.cpp \
 ../src/core/Tone.cpp \
 ../src/core/USBCore.cpp \
@@ -73,8 +74,7 @@ C_SRCS +=  \
 ../src/core/wiring_pulse.c \
 ../src/core/wiring_shift.c \
 ../src/core/WMath.cpp \
-../src/core/WString.cpp \
-../src/libraries/SPI/src/SPI.cpp
+../src/core/WString.cpp
 
 
 PREPROCESSING_SRCS +=  \
@@ -99,6 +99,7 @@ src/core/new.o \
 src/core/PluggableUSB.o \
 src/core/PreprocessingAssembly/wiring_pulse.o \
 src/core/Print.o \
+src/core/SPI.o \
 src/core/Stream.o \
 src/core/Tone.o \
 src/core/USBCore.o \
@@ -109,8 +110,7 @@ src/core/wiring_digital.o \
 src/core/wiring_pulse.o \
 src/core/wiring_shift.o \
 src/core/WMath.o \
-src/core/WString.o \
-src/libraries/SPI/src/SPI.o
+src/core/WString.o
 
 OBJS_AS_ARGS +=  \
 src/core/abi.o \
@@ -127,6 +127,7 @@ src/core/new.o \
 src/core/PluggableUSB.o \
 src/core/PreprocessingAssembly/wiring_pulse.o \
 src/core/Print.o \
+src/core/SPI.o \
 src/core/Stream.o \
 src/core/Tone.o \
 src/core/USBCore.o \
@@ -137,8 +138,7 @@ src/core/wiring_digital.o \
 src/core/wiring_pulse.o \
 src/core/wiring_shift.o \
 src/core/WMath.o \
-src/core/WString.o \
-src/libraries/SPI/src/SPI.o
+src/core/WString.o
 
 C_DEPS +=  \
 src/core/abi.d \
@@ -155,6 +155,7 @@ src/core/new.d \
 src/core/PluggableUSB.d \
 src/core/PreprocessingAssembly/wiring_pulse.d \
 src/core/Print.d \
+src/core/SPI.d \
 src/core/Stream.d \
 src/core/Tone.d \
 src/core/USBCore.d \
@@ -165,8 +166,7 @@ src/core/wiring_digital.d \
 src/core/wiring_pulse.d \
 src/core/wiring_shift.d \
 src/core/WMath.d \
-src/core/WString.d \
-src/libraries/SPI/src/SPI.d
+src/core/WString.d
 
 C_DEPS_AS_ARGS +=  \
 src/core/abi.d \
@@ -183,6 +183,7 @@ src/core/new.d \
 src/core/PluggableUSB.d \
 src/core/PreprocessingAssembly/wiring_pulse.d \
 src/core/Print.d \
+src/core/SPI.d \
 src/core/Stream.d \
 src/core/Tone.d \
 src/core/USBCore.d \
@@ -193,8 +194,7 @@ src/core/wiring_digital.d \
 src/core/wiring_pulse.d \
 src/core/wiring_shift.d \
 src/core/WMath.d \
-src/core/WString.d \
-src/libraries/SPI/src/SPI.d
+src/core/WString.d
 
 OUTPUT_FILE_PATH +=libArduinoCore.a
 
@@ -301,6 +301,13 @@ src/core/Print.o: ../src/core/Print.cpp
 	@echo Finished building: $<
 	
 
+src/core/SPI.o: ../src/core/SPI.cpp
+	@echo Building file: $<
+	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=8000000L -DARDUINO=108013 -DARDUINO_AVR_UNO -DARDUINO_ARCH_AVR -DUSB_VID=0x2341 -DUSB_PID=0x0043 -DUSB_MANUFACTURER="\"Arduino LLC\""  -I"..\include\core" -I"..\include\variants\standard" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include" -I"..\include\libraries\Wire\src" -I"..\include\libraries\Wire\src\utility" -I"..\include\libraries\SPI\src"  -Os -fno-threadsafe-statics -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -w -mmcu=atmega328pb -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega328pb" -c -std=gnu++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 src/core/Stream.o: ../src/core/Stream.cpp
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
@@ -372,13 +379,6 @@ src/core/WMath.o: ../src/core/WMath.cpp
 	
 
 src/core/WString.o: ../src/core/WString.cpp
-	@echo Building file: $<
-	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=8000000L -DARDUINO=108013 -DARDUINO_AVR_UNO -DARDUINO_ARCH_AVR -DUSB_VID=0x2341 -DUSB_PID=0x0043 -DUSB_MANUFACTURER="\"Arduino LLC\""  -I"..\include\core" -I"..\include\variants\standard" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include" -I"..\include\libraries\Wire\src" -I"..\include\libraries\Wire\src\utility" -I"..\include\libraries\SPI\src"  -Os -fno-threadsafe-statics -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -w -mmcu=atmega328pb -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega328pb" -c -std=gnu++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-src/libraries/SPI/src/SPI.o: ../src/libraries/SPI/src/SPI.cpp
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=8000000L -DARDUINO=108013 -DARDUINO_AVR_UNO -DARDUINO_ARCH_AVR -DUSB_VID=0x2341 -DUSB_PID=0x0043 -DUSB_MANUFACTURER="\"Arduino LLC\""  -I"..\include\core" -I"..\include\variants\standard" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include" -I"..\include\libraries\Wire\src" -I"..\include\libraries\Wire\src\utility" -I"..\include\libraries\SPI\src"  -Os -fno-threadsafe-statics -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -w -mmcu=atmega328pb -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega328pb" -c -std=gnu++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

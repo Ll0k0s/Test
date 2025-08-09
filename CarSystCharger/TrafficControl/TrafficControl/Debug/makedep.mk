@@ -16,6 +16,8 @@ TrafficControl\LocoPacket.cpp
 
 TrafficControl\Logic.cpp
 
+TrafficControl\SPI.cpp
+
 TrafficControl\Timer.cpp
 
 TrafficControl\UART.cpp

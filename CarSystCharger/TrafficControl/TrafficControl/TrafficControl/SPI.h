@@ -16,6 +16,19 @@
 
 #include <Arduino.h>
 
+// Some newer AVR devices use alternate register names (e.g. SPDR0)
+// Provide compatibility aliases when only the suffixed versions exist
+#if defined(SPDR0) && !defined(SPDR)
+#define SPDR SPDR0
+#endif
+#if defined(SPSR0) && !defined(SPSR)
+#define SPSR SPSR0
+#endif
+#if defined(SPCR0) && !defined(SPCR)
+#define SPCR SPCR0
+#endif
+
+
 // SPI_HAS_TRANSACTION means SPI has beginTransaction(), endTransaction(),
 // usingInterrupt(), and SPISetting(clock, bitOrder, dataMode)
 #define SPI_HAS_TRANSACTION 1

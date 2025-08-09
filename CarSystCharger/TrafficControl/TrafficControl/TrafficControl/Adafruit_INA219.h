@@ -19,7 +19,7 @@
 
 #include "Arduino.h"
 #include "Adafruit_BusIO_Register.h"
-#include <Adafruit_I2CDevice.h>
+#include "Adafruit_I2CDevice.h"
 #include "Wire.h"
 
 /** calculated I2C address: 0 = GND, 1 = V+ **/

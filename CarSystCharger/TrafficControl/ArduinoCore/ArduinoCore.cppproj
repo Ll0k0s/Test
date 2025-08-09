@@ -271,6 +271,9 @@
     <Compile Include="include\core\Server.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="include\core\SPI.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="include\core\Stream.h">
       <SubType>compile</SubType>
     </Compile>
@@ -293,9 +296,6 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="include\core\WString.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="include\libraries\SPI\src\SPI.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="include\variants\standard\pins_arduino.h">
@@ -343,6 +343,9 @@
     <Compile Include="src\core\Print.cpp">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\core\SPI.cpp">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\core\Stream.cpp">
       <SubType>compile</SubType>
     </Compile>
@@ -374,9 +377,6 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\core\WString.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\libraries\SPI\src\SPI.cpp">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

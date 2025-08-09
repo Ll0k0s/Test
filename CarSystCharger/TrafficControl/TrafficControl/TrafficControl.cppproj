@@ -312,6 +312,12 @@
     <Compile Include="TrafficControl\Settings.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="TrafficControl\SPI.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="TrafficControl\SPI.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="TrafficControl\Timer.cpp">
       <SubType>compile</SubType>
     </Compile>

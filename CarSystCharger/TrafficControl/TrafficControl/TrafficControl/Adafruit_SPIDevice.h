@@ -6,7 +6,7 @@
 #if !defined(SPI_INTERFACES_COUNT) ||                                          \
     (defined(SPI_INTERFACES_COUNT) && (SPI_INTERFACES_COUNT > 0))
 // HW SPI available
-#include <SPI.h>
+#include <>
 #define BUSIO_HAS_HW_SPI
 #else
 // SW SPI ONLY
