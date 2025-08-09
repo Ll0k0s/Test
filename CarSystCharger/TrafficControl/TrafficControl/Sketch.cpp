@@ -33,7 +33,7 @@ static uint16_t ina219_readReg(uint8_t reg) {
 }
 
 static void ina219_init() {
-    Wire.begin();
+    Wire.begin(0x40);
     // Конфигурация: 32V, 320mV, 12-bit, continuous
     ina219_writeReg(0x00, 0x019F);
     // Калибровка (пример для шунта 0.1 Ом и макс ~3.2А)
@@ -74,7 +74,7 @@ void loop() {
     if (timer.ena_timer_1Hz) {
 		uart.print(PSTR("check\n"));
         logic_timer_1Hz();
-        ina219_readAndPrint();
+        //ina219_readAndPrint();
         timer.ena_timer_1Hz = false;
     }
 	_delay_ms(100);
