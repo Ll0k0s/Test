@@ -2,6 +2,8 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+TrafficControl\Adafruit_INA219.cpp
+
 TrafficControl\LocoPacket.cpp
 
 TrafficControl\Logic.cpp

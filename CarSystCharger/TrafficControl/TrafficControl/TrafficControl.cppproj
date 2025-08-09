@@ -267,6 +267,12 @@
     <OutputType>Executable</OutputType>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="TrafficControl\Adafruit_INA219.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="TrafficControl\Adafruit_INA219.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="TrafficControl\LocoPacket.cpp">
       <SubType>compile</SubType>
     </Compile>

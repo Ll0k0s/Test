@@ -51,6 +51,7 @@ SUBDIRS :=  \
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../TrafficControl/Adafruit_INA219.cpp \
 ../TrafficControl/LocoPacket.cpp \
 ../TrafficControl/Logic.cpp \
 ../TrafficControl/Timer.cpp \
@@ -71,6 +72,7 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+TrafficControl/Adafruit_INA219.o \
 TrafficControl/LocoPacket.o \
 TrafficControl/Logic.o \
 TrafficControl/Timer.o \
@@ -84,6 +86,7 @@ TrafficControl/Wire/src/utility/twi.o \
 TrafficControl/Wire/src/Wire.o
 
 OBJS_AS_ARGS +=  \
+TrafficControl/Adafruit_INA219.o \
 TrafficControl/LocoPacket.o \
 TrafficControl/Logic.o \
 TrafficControl/Timer.o \
@@ -97,6 +100,7 @@ TrafficControl/Wire/src/utility/twi.o \
 TrafficControl/Wire/src/Wire.o
 
 C_DEPS +=  \
+TrafficControl/Adafruit_INA219.d \
 TrafficControl/LocoPacket.d \
 TrafficControl/Logic.d \
 TrafficControl/Timer.d \
@@ -110,6 +114,7 @@ TrafficControl/Wire/src/utility/twi.d \
 TrafficControl/Wire/src/Wire.d
 
 C_DEPS_AS_ARGS +=  \
+TrafficControl/Adafruit_INA219.d \
 TrafficControl/LocoPacket.d \
 TrafficControl/Logic.d \
 TrafficControl/Timer.d \
@@ -137,6 +142,13 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+TrafficControl/Adafruit_INA219.o: ../TrafficControl/Adafruit_INA219.cpp
+	@echo Building file: $<
+	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DARDUINO=108013 -DARDUINO_AVR_UNO -DARDUINO_ARCH_AVR -DUSB_VID=0x2341 -DUSB_PID=0x0043 -DUSB_MANUFACTURER="\"Arduino LLC\"" -DDEBUG -DF_CPU=8000000L  -I"..\\..\ArduinoCore\include\core" -I"..\\..\ArduinoCore\include\variants\standard" -I"../LoconetLib" -I"../LoconetLib/utility" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Os -fno-threadsafe-statics -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -w -mmcu=atmega328pb -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega328pb" -c -std=gnu++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 TrafficControl/LocoPacket.o: ../TrafficControl/LocoPacket.cpp
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
